@@ -1,33 +1,33 @@
 import Head from 'next/head'
 import { GetStaticProps, NextPage } from 'next'
 import Post from '../components/post'
-import { PostData, PostDataListProps } from '../types/postdata'
-import { GetPosts } from '../lib/postdata_api'
+import { TodoData, TodoDataListProps } from '../types/tododata'
+import { GetTodos } from '../lib/todo_api'
 
 export const getStaticProps: GetStaticProps = async (_context) => {
   // fetch list of posts
-  const posts: PostData[] = await GetPosts()
+  const posts: TodoData[] = await GetTodos()
   return {
     props: {
-      postDataList: posts,
+      todoDataList: posts,
     },
   }
 }
 
-const IndexPage: NextPage<PostDataListProps> = ({
-  postDataList,
-}: PostDataListProps) => {
+const IndexPage: NextPage<TodoDataListProps> = ({
+  todoDataList,
+}: TodoDataListProps) => {
   return (
     <main>
       <Head>
         <title>Home page</title>
       </Head>
 
-      <h1>List of posts</h1>
+      <h1>List of Discord Servers</h1>
 
       <section>
-        {postDataList.map((post: PostData) => (
-          <Post {...post} key={post.id} />
+        {todoDataList.map((todoData: TodoData) => (
+          <span key={`${todoData.name}-${todoData.id}`}>{todoData.name}</span>
         ))}
       </section>
     </main>
