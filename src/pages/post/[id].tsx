@@ -4,7 +4,7 @@ import React from 'react'
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { PostData, PostDataProps } from '../../types/postdata'
-import { GetPosts, GetPost } from '../../lib/api'
+import { GetPosts, GetPost } from '../../lib/postdata_api'
 
 interface Params extends ParsedUrlQuery {
   id: string
