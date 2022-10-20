@@ -22,9 +22,7 @@ const IndexPage: NextPage<TodoDataListProps> = ({
       <Head>
         <title>Home page</title>
       </Head>
-
       <h1>List of Discord Servers</h1>
-
       <section>
         {todoDataList.map((todoData: TodoData) => (
           <span key={`${todoData.name}-${todoData.id}`}>{todoData.name}</span>
